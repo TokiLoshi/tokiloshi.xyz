@@ -5,6 +5,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import netlify from "@netlify/vite-plugin-tanstack-start";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import mdx from "@mdx-js/rollup";
 
 export default defineConfig({
 	server: {
@@ -12,6 +13,7 @@ export default defineConfig({
 	},
 	plugins: [
 		tsConfigPaths(),
+		mdx(),
 		tanstackStart(),
 		netlify(),
 		tailwindcss(),
