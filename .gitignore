@@ -1,0 +1,26 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+count.txt
+.env
+.nitro
+.tanstack
+.output
+.vinxi
+
+src/routeTree.gen.ts
+**/routeTree.gen.ts
+
+# Local Netlify folder
+.netlify
+
+# Local to dos 
+todos.md
+spotifyDocs.md
+todos.json
+gpiNotes.md
+audio.json
+audio.js
+

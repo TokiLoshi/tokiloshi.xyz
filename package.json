@@ -1,0 +1,34 @@
+{
+	"name": "tokiloshi-xyz",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "vite dev",
+		"build": "vite build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.28.2",
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.18",
+		"@tanstack/react-router": "^1.160.2",
+		"@tanstack/react-start": "^1.160.2",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"tailwindcss": "^4.1.18"
+	},
+	"devDependencies": {
+		"@types/node": "^25.2.3",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.4",
+		"i": "^0.3.7",
+		"typescript": "^5.9.3",
+		"vite": "^7.3.1",
+		"vite-tsconfig-paths": "^6.1.1"
+	}
+}
