@@ -50,6 +50,7 @@
 import * as fs from "node:fs";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
+import Header from "../components/Header";
 
 const filePath = "count.txt";
 
@@ -60,6 +61,8 @@ export const Route = createFileRoute("/")({
 function Home() {
 	return (
 		<>
+			{" "}
+			<Header />
 			<div className='min-h-screen bg-slate-900/80 flex flex-col items-center justify-center px-6'>
 				<h1 className='text-2xl text-emerald-500'>TokiLoshi.xyz</h1>
 				<h2 className='text-2xl text-emerald-400'>Life is more fun in 3D</h2>
