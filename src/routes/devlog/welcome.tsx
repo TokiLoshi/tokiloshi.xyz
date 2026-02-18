@@ -9,7 +9,6 @@ export const Route = createFileRoute("/devlog/welcome")({
 function RouteComponent() {
 	return (
 		<>
-			<Header />
 			<div className='min-h-screen bg-slate-900/80 flex flex-col items-center justify-center px-6'>
 				<h1 className='text-2xl text-emerald-500'>Devlog</h1>
 				<h2 className='text-2xl text-emerald-400'>Life is more fun in 3D</h2>

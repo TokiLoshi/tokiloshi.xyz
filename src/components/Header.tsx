@@ -50,11 +50,9 @@ export default function Header() {
 							/> */}
 						</div>
 						<div className='leading-tight'>
-							<div className='text-base font-semibold text-[--color-text-primary]'>
-								TokiLoshi
-							</div>
-							<div className='text-[11px] text-[--color-text-secondary]'>
-								creative deveveloper • web + 3D
+							<div className='text-amber font-semibold '>TokiLoshi</div>
+							<div className='text-md text-text-secondary'>
+								creative developer • web + 3D
 							</div>
 						</div>
 					</Link>

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
 function RouteComponent() {
 	return (
 		<>
-			<main className='min-h-screen bg-[--color-canvas] relative overflow-hidden flex flex-col items-center justify-center px-6 py-24'>
+			<main className='min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-6 py-24'>
 				{/** Glow */}
 				<div aria-hidden className='pointer-events-none absolute inset-0' />
 				<div className='relative z-10 max-w-lg w-full text-center space-y-4'>
