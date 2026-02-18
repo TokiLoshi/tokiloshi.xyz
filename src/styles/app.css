@@ -1,2 +1,37 @@
 /* src/styles/app.css */
 @import "tailwindcss";
+	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap");
+
+@theme {
+	/* Nocturnal Garden Palette */
+	--color-canvas: #0a1f1a;
+	--color-surface: #0f2920;
+	--color-surface-2: #142e24;
+	--color-border: #1e4035;
+	--color-border-light: #2a5045;
+
+	--color-text-primary: #e8ede8;
+	--color-text-secondary: #8aaa96;
+	--color-text-muted: #4a6b58;
+
+	--color-amber: #d4935a;
+	--color-amber-dim: #8a5a30;
+	--color-amber-glow: rgba(212, 147, 90, 0.12);
+
+	--color-sage: #5d9470;
+	--color-blush: #c47a6e;
+
+	--font-display: "Cormorant Garamond", Georgia, serif;
+	--font-mono: "DM Mono", "Fira Code", monospace;
+	--font-sans: "DM Mono", monospace;
+}
+
+@layer base {
+	html, body {
+		@apply bg-canvas text-text-primary font-mono antialiased;
+	}
+}
+
+
+  /** 
+}

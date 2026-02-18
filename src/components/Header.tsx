@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const navItemBase =
-	"flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-white font-medium transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30";
+	"flex items-center gap-3 rounded-[--radius] font-mono px-3 py-2.5 mb-2 text-sm text-[--color-text-secondary] transition-all duration-200 hover:bg-[--color-surface-2] hover:text-[--color-text-primary] focus:outline-none focus-visible:ring-2 focus-visible:ring-[--border-light]";
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -28,20 +28,22 @@ export default function Header() {
 
 	return (
 		<>
-			<header className='sticky top-0 z-40 border-b border-emerald-500 bg-slate-800/80 backdrop-blur supports-backdrop-filter:bg-slate-950/90'>
+			<header className='sticky h-20 top-0 z-40 border-b border-[--color-border] bg-slate-800/80 backdrop-blur supports-backdrop-filter:bg-slate-950/90'>
 				<div className='mx-auto flex h-14 max-w-5xl items-center gap-3 px-4'>
 					<button
 						onClick={() => setIsOpen(true)}
 						aria-label='Open menu'
-						className='rounded-xl p-2 transition text-white hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30'>
+						className='rounded-[--radius] p-2 cursor-pointer transition text-[--text-secondary] hover:bg-[--color-surface-2] hover:text[--color-text-primary] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30'>
 						<Menu size={22} className='text-white' />
 					</button>
 					<Link to='/' className='flex items-center gap-2'>
 						{/** Avatar placeholder */}
-						<div className='h-8 w-8 rounded-xl bg-linear-to-br from-violet-400/60 to-cyan-400/60 ring-1 ring-white/10' />
-						<div className='text-sm font-semibold text-white'>TokiLoshi</div>
-						<div className='text-[11px] text-white/60'>
-							creative dev • web + 3D
+						<div className='h-8 w-8 rounded-xl bg-linear-to-br from-violet-400/60 to-cyan-400/60 ring-1 ring-white/10'>
+							<img src='/GPTAvatar.png' className='rounded object-cover' />
+						</div>
+						<div className='text-2xl font-semibold text-white'>TokiLoshi</div>
+						<div className='text-md text-white/60'>
+							creative deveveloper • web + 3D
 						</div>
 					</Link>
 					<div className='ml-auto flex items-center gap-2'>
@@ -67,7 +69,7 @@ export default function Header() {
 					<button
 						onClick={() => setIsOpen(false)}
 						aria-label='Close menu'
-						className='rounded-xl p-2 transition text-white hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30'>
+						className='rounded-xl cursor-pointer p-2 transition text-white hover:bg-slate-100/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30'>
 						<XIcon size={20} />
 					</button>
 				</div>
@@ -118,7 +120,7 @@ export default function Header() {
 						onClick={() => setIsOpen(false)}
 						className={navItemBase}
 						activeProps={{
-							className: navItemBase + "bg-white ring-1 ring-white/10",
+							className: navItemBase + " bg-white/10 ring-1 ring-white/10",
 						}}>
 						<Mail size={18} />
 						Contact
