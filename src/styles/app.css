@@ -1,6 +1,6 @@
 /* src/styles/app.css */
 @import "tailwindcss";
-	@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap");
 
 @theme {
 	/* Nocturnal Garden Palette */
@@ -21,17 +21,23 @@
 	--color-sage: #5d9470;
 	--color-blush: #c47a6e;
 
+	--radius: 0.75rem;
+
 	--font-display: "Cormorant Garamond", Georgia, serif;
-	--font-mono: "DM Mono", "Fira Code", monospace;
-	--font-sans: "DM Mono", monospace;
+	--font-mono:
+		"DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
+	--font-sans:
+		ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+		"Apple Color Emoji", "Segoe UI Emoji";
 }
 
 @layer base {
-	html, body {
+	html,
+	body {
+		height: 100%;
+	}
+	body {
 		@apply bg-canvas text-text-primary font-mono antialiased;
 	}
-}
-
-
-  /** 
 }

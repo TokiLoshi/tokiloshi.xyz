@@ -7,6 +7,8 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import appCss from "../styles/app.css?url";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -33,7 +35,13 @@ export const Route = createRootRoute({
 function RootComponent() {
 	return (
 		<RootDocument>
-			<Outlet />
+			<div className='min-h-dvh'>
+				<Header />
+				<main className='mx-auto max-w-5xl px-4 py-10'>
+					<Outlet />
+				</main>
+				<Footer />
+			</div>
 		</RootDocument>
 	);
 }
@@ -44,8 +52,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
+			<body className='bg-[--color-canvas] text-[--color-primary] font-mono antialiased'>
 				{children}
+
 				<Scripts />
 			</body>
 		</html>

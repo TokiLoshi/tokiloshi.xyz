@@ -8,7 +8,6 @@ export const Route = createFileRoute("/contact")({
 function RouteComponent() {
 	return (
 		<>
-			<Header />
 			<div className='min-h-screen bg-slate-900/80 flex flex-col items-center justify-center px-6'>
 				<h1 className='text-emerald-500'>About</h1>
 				<p className='text-emerald-300'>Under construction 🚧</p>

@@ -9,7 +9,6 @@ export const Route = createFileRoute("/about")({
 function RouteComponent() {
 	return (
 		<>
-			<Header />
 			<main className='min-h-screen bg-[--color-canvas] relative overflow-hidden flex flex-col items-center justify-center px-6 py-24'>
 				{/** Glow */}
 				<div aria-hidden className='pointer-events-none absolute inset-0' />
@@ -24,8 +23,6 @@ function RouteComponent() {
 					</h1>
 				</div>
 			</main>
-
-			<Footer />
 		</>
 	);
 }
