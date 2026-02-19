@@ -9,20 +9,37 @@ export const Route = createFileRoute("/about")({
 function RouteComponent() {
 	return (
 		<>
-			<main className='min-h-screen relative overflow-hidden flex flex-col items-center justify-center px-6 py-24'>
-				{/** Glow */}
-				<div aria-hidden className='pointer-events-none absolute inset-0' />
-				<div className='relative z-10 max-w-lg w-full text-center space-y-4'>
-					{/** Page label */}
-					<p className='text-md font-mono tracking-normal uppercase text-[--color-sage]'>
-						About
-					</p>
-
-					<h1 className='font-display text-5xl font-light text-[--color-text-primary] leading-tight'>
-						Under <em className='text-[--color-amber] italic'>construction</em>
-					</h1>
+			<div className='min-h-screen bg-canvas px-4 py-12'>
+				<div className='mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2'>
+					{/** Left info */}
+					<section className='space-y-4'>
+						<h1 className='font-display text-3xl text-text-primary'>Contact</h1>
+						<p className='text-sm text-text-secondary'>
+							Want to collaborate, work with me or just chat creative dev and
+							3D? Send me a note
+						</p>
+						<div className='rounded-lg border border-border bg-surface p-4'>
+							<div className='text-xs uppercase tracking-wide text-text-muted'>
+								Elsewhere
+							</div>
+							<div className='mt-3 flex flex-col gap-2 text-sm'>
+								<a
+									className='text-text-secondary transition-colors hover:text-amber'
+									href='https://x.com/3DBeeing'
+									target='_blank'
+									rel='noopener noreferrer'>
+									X / @3DBeeing
+								</a>
+								<a
+									className='text-text-secondary transition-colors hover-text-amber'
+									href='https://github.com/TokiLoshi'
+									target='_blank'
+									rel='noopener noreferrer'></a>
+							</div>
+						</div>
+					</section>
 				</div>
-			</main>
+			</div>
 		</>
 	);
 }

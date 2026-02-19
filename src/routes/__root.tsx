@@ -1,5 +1,5 @@
 /// <reference types='vite/client' />;
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
 	Outlet,
 	createRootRoute,
@@ -9,6 +9,8 @@ import {
 import appCss from "../styles/app.css?url";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -47,14 +49,18 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+	const [queryClient] = useState(() => new QueryClient());
 	return (
 		<html>
 			<head>
 				<HeadContent />
 			</head>
-			<body className='bg-[--color-canvas] text-[--color-primary] font-mono antialiased'>
-				{children}
 
+			<body className='bg-canvas text-text-primary font-mono antialiased'>
+				<QueryClientProvider client={queryClient}>
+					<Toaster />
+					{children}
+				</QueryClientProvider>
 				<Scripts />
 			</body>
 		</html>

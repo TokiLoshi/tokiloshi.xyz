@@ -6,8 +6,14 @@ import netlify from "@netlify/vite-plugin-tanstack-start";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@mdx-js/rollup";
+import path from "path";
 
 export default defineConfig({
+	resolve: {
+		alias: {
+			"@": path.resolve(__dirname, "./src"),
+		},
+	},
 	server: {
 		port: 3000,
 	},
