@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { sendMessage } from "../lib/server/message";
+import { ContactForm } from "@/components/ui/form";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
 	component: RouteComponent,
@@ -15,6 +17,9 @@ function RouteComponent() {
 		onSuccess: () => {
 			console.log("ADDing mutation: ");
 			setSuccess(true);
+		},
+		onError: () => {
+			toast.error("Something went wrong. Please try again.");
 		},
 	});
 
@@ -61,29 +66,18 @@ function RouteComponent() {
 						</p>
 						<div className='mt-6'>
 							{/** Form */}
-							{success ? (
+							<ContactForm
+								onSubmit={async (value) => addMutation.mutateAsync(value)}
+								isSubmitting={addMutation.isPending}
+							/>
+							{addMutation.isSuccess && (
 								<div className='text-text-primary'>
 									Thanks! Your message was sent.
 								</div>
-							) : (
-								<button
-									className='rounded-lg cursor-pointer bg-amber px-4 py-2 text-text-primary'
-									onClick={() => {
-										console.log("Button clicked, applying mutation");
-										addMutation.mutate({
-											name: "Testing chaos",
-											email: "text@gmail.com",
-											message: "This is a message of chaos",
-										});
-									}}
-									disabled={addMutation.isPending}>
-									{addMutation.isPending ? "Sending..." : "Send"}{" "}
-								</button>
 							)}
 							{addMutation.isError && (
 								<p className='mt-3 text-sm text-blush'>
 									Something went wrong. Please try again later.{" "}
-									{addMutation.data}
 								</p>
 							)}
 						</div>
