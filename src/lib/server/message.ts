@@ -14,8 +14,6 @@ export const sendMessage = createServerFn({ method: "POST" }).handler(
 			throw new Error("Missing environment variables");
 		}
 
-		console.log(`resend: ${resend} to address: ${to} from ${from}`);
-
 		const subject = `Portfolio message received 💥 from ${input.name}`;
 		const html = `
 		<div>
@@ -32,8 +30,6 @@ export const sendMessage = createServerFn({ method: "POST" }).handler(
 			replyTo: input.email,
 			html,
 		});
-
-		console.log("Sent: ", sent);
 
 		if (error) {
 			console.error("Resend error:", error);
