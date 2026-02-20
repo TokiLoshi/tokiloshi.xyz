@@ -9,4 +9,9 @@ export const contactSchema = z.object({
 		.max(2000, "Message is a bit long..."),
 });
 
+export const contactSubmitSchema = contactSchema.extend({
+	company: z.string(),
+});
+
 export type ContactInput = z.infer<typeof contactSchema>;
+export type ConatctSubmitInput = z.infer<typeof contactSubmitSchema>;

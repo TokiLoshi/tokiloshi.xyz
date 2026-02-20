@@ -1,5 +1,5 @@
 import { useForm } from "@tanstack/react-form";
-import { contactSchema } from "@/lib/contact-schema";
+import { contactSubmitSchema } from "@/lib/contact-schema";
 import { toast } from "sonner";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,7 @@ export function ContactForm({
 		name: string;
 		email: string;
 		message: string;
+		company?: string;
 	}) => Promise<{ success: boolean }>;
 	isSubmitting?: boolean;
 }) {
@@ -37,9 +38,10 @@ export function ContactForm({
 			name: "",
 			email: "",
 			message: "",
+			company: "",
 		},
 		validators: {
-			onSubmit: contactSchema,
+			onSubmit: contactSubmitSchema,
 		},
 		onSubmit: async ({ value }) => {
 			await onSubmit(value);
@@ -139,6 +141,21 @@ export function ContactForm({
 								}}
 							/>
 						</FieldGroup>
+						<form.Field name='company'>
+							{(field) => (
+								<div className='sr-only' aria-hidden='true'>
+									<label htmlFor={field.name}>Company</label>
+									<input
+										id={field.name}
+										name={field.name}
+										tabIndex={-1}
+										autoComplete='off'
+										value={field.state.value}
+										onChange={(e) => field.handleChange(e.target.value)}
+									/>
+								</div>
+							)}
+						</form.Field>
 					</form>
 				</CardContent>
 				<CardFooter>

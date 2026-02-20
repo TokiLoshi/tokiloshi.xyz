@@ -1,10 +1,15 @@
 import { createServerFn } from "@tanstack/react-start";
-import { contactSchema } from "../contact-schema";
+import { contactSubmitSchema } from "../contact-schema";
 import { Resend } from "resend";
 
 export const sendMessage = createServerFn({ method: "POST" }).handler(
 	async ({ data }) => {
-		const input = contactSchema.parse(data);
+		const input = contactSubmitSchema.parse(data);
+		console.log("INput received, server hit: ", input);
+		if (input.company && input.company.trim().length > 0) {
+			console.log("We got a bot!");
+			return { success: true as const };
+		}
 		console.log("CONTACT message: ", input);
 		const resend = new Resend(process.env.RESEND_API_KEY);
 		const to = process.env.CONTACT_TO_EMAIL;
@@ -17,9 +22,8 @@ export const sendMessage = createServerFn({ method: "POST" }).handler(
 		const subject = `Portfolio message received 💥 from ${input.name}`;
 		const html = `
 		<div>
-		<p>Name: ${input.name}</p>
-		<p>Email: ${input.email}</p>
-		<p>Message: ${input.message}</p>
+		<p><strong>Name:</strong> ${input.name}</p>
+		<p><strong>Email:</strong> ${input.email}</p>
 		<p>${escapeHtml(input.message).replace(/\n/g, "<br/>")}
 		</div>`;
 
