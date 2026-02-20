@@ -35,9 +35,9 @@ function RouteComponent() {
 					</span>
 
 					<div className='flex items-center gap-6 mt-5'>
-						{/* Avatar placeholder — swap for your image */}
+						{/* Avatar placeholder */}
 						<div className='w-20 h-20 rounded-full bg-surface-2 border-2 border-border flex items-center justify-center shrink-0 overflow-hidden'>
-							{/* <img src="/your-avatar.jpg" alt="Bee" className="w-full h-full object-cover" /> */}
+							{/* <img src="avatar.jpg" alt="Bee" className="w-full h-full object-cover" /> */}
 							<span className='text-3xl'>🐝</span>
 						</div>
 						<h1 className='text-2xl md:text-5xl font-light font-display text-text-primary leading-tight'>
@@ -103,7 +103,7 @@ function RouteComponent() {
 					</ul>
 				</div>
 
-				{/* Shipping proof + tools */}
+				{/* Tools */}
 				<div className='mb-14'>
 					<p className='text-[13px] text-text-secondary font-light leading-relaxed mb-5'>
 						I've shipped production apps across gaming, agriculture, internal
