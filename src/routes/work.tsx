@@ -8,13 +8,14 @@ export const Route = createFileRoute("/work")({
 const projects = [
 	{
 		name: "Cozy Chapter",
-		description: "3D personal media tracker and plant watering tracker",
+		description:
+			"A 3D personal media tracker and plant watering app — because my growing collection of Dracaena demanded better record-keeping.",
 		stack: [
 			"Tanstack start",
-			"R3 Fiber",
+			"R3F",
 			"Drizzle",
-			"Better auth",
-			"Typescript",
+			"Better Auth",
+			"TypeScript",
 			"Tailwind",
 			"Zod",
 			"Neon Postgres",
@@ -22,21 +23,21 @@ const projects = [
 		],
 		imagePath: "",
 		url: "",
+		status: "In progress",
 	},
 	{
 		name: "Pitaya Tracker",
 		description:
-			"Inventory, variant and export tracker, with data visualization for a Fruit farm",
+			"A farm management system for a dragon fruit farm in Mozambique — tracking 200+ variants, flowering cycles, taste profiles, and international exports.",
 		stack: [
-			"Next-js",
-			"Next-auth",
-			"Typescript",
+			"Next.js",
+			"NextAuth",
+			"TypeScript",
 			"Neon Postgres",
 			"Tailwind",
-			"R3 Fiber",
+			"R3F",
 			"Drizzle",
 			"Zod",
-			"Neon Postgres",
 			"Vercel",
 		],
 		imagePath: "",
@@ -44,18 +45,19 @@ const projects = [
 	},
 	{
 		name: "Castle Capers",
-		description: "Mini 3D Murder mystery game",
-		stack: ["R3 Fiber", "Drei", "Zustand", "Vercel"],
+		description:
+			"A mini 3D murder mystery game — explore a castle, find clues, and figure out whodunit.",
+		stack: ["R3F", "Drei", "Zustand", "Vercel"],
 		imagePath: "",
 		url: "",
 	},
 	{
 		name: "Island Hopper",
 		description:
-			"Mapbox experiment exploring places around the world with animated characters as guides",
+			"Mapbox experiment exploring places around the world with animated characters as guides.",
 		stack: [
 			"Next.js",
-			"R3 Fiber",
+			"R3F",
 			"Drei",
 			"Mapbox",
 			"Postprocessing",
@@ -69,51 +71,125 @@ const projects = [
 	{
 		name: "Codemon",
 		description:
-			"A JRPG battle game with a coding theme, collaboration for Little Shop of Chaos a 3day hackathon - 2nd place winners",
-		stack: ["Phaser", "MongoDB", "Vercel", "Typescript", "Express"],
+			"A JRPG battle game with a coding theme — built in 3 days as a collaboration for Little Shop of Chaos - 2nd place Boot.dev hackathon winners",
+		stack: ["Phaser", "MongoDB", "Express", "Typescript", "Vercel"],
+		imagePath: "",
+		url: "",
+		badge: "🏆",
+	},
+	{
+		name: "Peaks and Beaks",
+		description:
+			"Strava meets tracking the species you've seen out on a walkabout, run, or row so I could appreciate the urban wildlife and watch personal mileage accrue.",
+		stack: [
+			"Django",
+			"GeoDjango",
+			"Postgres",
+			"S3",
+			"Heroku",
+			"sendgrid",
+			"whitenoise",
+		],
 		imagePath: "",
 		url: "",
 	},
 ];
 
+function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+	return (
+		<>
+			<div className='group bg-surface border border-border rounded-lg overflow-hidden transition-colors hover:border-border-light'>
+				{/** Image placeholder */}
+				<div className=' w-full overflow-hidden'>
+					{project.imagePath ? (
+						<img
+							src={project.imagePath}
+							alt={project.name}
+							className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+						/>
+					) : (
+						<div className='aspect-video w-full bg-surface-2 flex items-center justify-center'>
+							<span className='text-text-muted text-xs tracking-wide'>
+								Screenshot coming soon
+							</span>
+						</div>
+					)}
+				</div>
+
+				{/** Content */}
+				<div className='p-6'>
+					{/** Title */}
+					<div className='flex items-start justify-between gap-3 mb-3'>
+						<h2 className='text-lg font-display font-light text-text-primary'>
+							{project.name}
+						</h2>
+						<div className='flex items-center gap-2 shrink-0'>
+							{project.badge && (
+								<span className='text-md font-normal text-amber bg-amber-glow px-2 py-1 rounded-full whitespace-nowrap'>
+									{project.badge}
+								</span>
+							)}
+							{project.status && (
+								<span className='text-md font-normal text-sage bg-sage/10 px-2 py-1 rounded-full whitespace-nowrap'>
+									{project.status}
+								</span>
+							)}
+						</div>
+					</div>
+					{/** Description */}
+					<p className='text-md text-text-secondary font-light leading-relaxed mb-4'>
+						{project.description}
+					</p>
+					{/** Stack tags */}
+					<div className='flex flex-wrap gap-1.5'>
+						{project.stack.map((tool) => (
+							<span
+								key={tool}
+								className='inline-flex items-center rounded-md px-2 py-0.5 text-xs font-normal bg-surface-2/60 text-text-secondary border border/70 transition hover:text-text-primary hover:bg-amber-glow'>
+								{tool}
+							</span>
+						))}
+					</div>
+				</div>
+
+				{project.url && (
+					<a
+						href={project.url}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='block'>
+						Link
+					</a>
+				)}
+			</div>
+		</>
+	);
+}
+
 function RouteComponent() {
 	return (
 		<>
-			<div className='h-screen max-w-180 mx-auto px-6 p-16 pb-32'>
+			<div className='mx-auto px-6 pt-16 pb-32'>
 				{/** Header */}
 				<div className='mb-14'>
 					<span className='text-sm font-light tracking-wide text-amber'>
 						Work
 					</span>
 					<div className='flex items-center gap-6 mt-5'>
-						<div className='w-20 h-20 rounded-full bg-surface-2 border-2 border-border flex items-center justify-center shrink-0 overflow-hidden'>
-							<span className='text-3xl'>💼</span>
-						</div>
-						<h1 className='text-2xl md:text-5xl font-light font-display text-text-primary leading-tight'>
+						<h1 className='text-4xl md:text-5xl font-light font-display text-text-primary leading-tight mt-4'>
 							Selected works
 						</h1>
 					</div>
-					<p className=' mt-2 font-light text-sm leading-relaxed text-text-primary'>
-						This is a selection of my current works and recent projects.
+					<p className=' mt-3 font-light text-sm leading-relaxed text-text-secondary max-w-lg'>
+						A selection of things I've built recently — from full-stack apps to
+						small games to creative experiments.
 					</p>
 				</div>
 
-				{/** Works */}
-				<div className='bg-surface border mt-3 border-border rounded-lg p-7 mb-14'>
-					{projects.map((project, i) => (
-						<>
-							<div className='text-xs font-normal text-amber tracking-widest uppercase mb-4'>
-								{project.name}
-							</div>
-							<ul className='space-y-2.5' key={i}>
-								<li
-									key={`${i}-${project.description}`}
-									className='text-text-secondary text-md font-light pl-5 relative'>
-									<span className='absolute left-0 text-text-muted'>→</span>
-									{project.description}
-								</li>
-							</ul>
-						</>
+				{/** Project grid */}
+				<div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+					{projects.map((project) => (
+						<ProjectCard key={project.name} project={project} />
 					))}
 				</div>
 			</div>
