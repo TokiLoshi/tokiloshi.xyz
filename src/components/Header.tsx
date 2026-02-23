@@ -43,11 +43,11 @@ export default function Header() {
 					<Link to='/' className='flex items-center gap-3'>
 						{/** Avatar placeholder */}
 						<div className='h-9 w-9 overflow-hidden rounded-lg ring-1 ring-border-light bg-linear-to-br from-sage to-amber/35'>
-							{/* <img
-								src='/GPTAvatar.png'
+							<img
+								src='/favicons/xyz.png'
 								alt='Bee / Toki'
 								className='h-full w-full object-cover'
-							/> */}
+							/>
 						</div>
 						<div className='leading-tight'>
 							<div className='text-amber font-semibold '>TokiLoshi</div>

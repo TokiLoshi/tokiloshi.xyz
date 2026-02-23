@@ -1,105 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Header from "../components/Header";
+import { projects } from "@/lib/data/projects";
 
 export const Route = createFileRoute("/work")({
 	component: RouteComponent,
 });
 
-const projects = [
-	{
-		name: "Cozy Chapter",
-		description:
-			"A 3D personal media tracker and plant watering app — because my growing collection of Dracaena demanded better record-keeping.",
-		stack: [
-			"Tanstack start",
-			"R3F",
-			"Drizzle",
-			"Better Auth",
-			"TypeScript",
-			"Tailwind",
-			"Zod",
-			"Neon Postgres",
-			"Netlify",
-		],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
-		url: "",
-		status: "In progress",
-	},
-	{
-		name: "Pitaya Tracker",
-		description:
-			"A farm management system for a dragon fruit farm in Mozambique — tracking 200+ variants, flowering cycles, taste profiles, and international exports.",
-		stack: [
-			"Next.js",
-			"NextAuth",
-			"TypeScript",
-			"Neon Postgres",
-			"Tailwind",
-			"R3F",
-			"Drizzle",
-			"Zod",
-			"Vercel",
-		],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
-		url: "",
-	},
-	{
-		name: "Castle Capers",
-		description:
-			"A mini 3D murder mystery game — explore a castle, find clues, and figure out whodunit.",
-		stack: ["R3F", "Drei", "Zustand", "Vercel"],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
-		url: "",
-	},
-	{
-		name: "Island Hopper",
-		description:
-			"Mapbox experiment exploring places around the world with animated characters as guides.",
-		stack: [
-			"Next.js",
-			"R3F",
-			"Drei",
-			"Mapbox",
-			"Postprocessing",
-			"GLSL",
-			"Zustand",
-			"Vercel",
-		],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
-		url: "",
-	},
-	{
-		name: "Codemon",
-		description:
-			"A JRPG battle game with a coding theme — built in 3 days as a collaboration for Little Shop of Chaos - 2nd place Boot.dev hackathon winners",
-		stack: ["Phaser", "MongoDB", "Express", "Typescript", "Vercel"],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
-		url: "",
-		badge: "🏆",
-	},
-	{
-		name: "Peaks and Beaks",
-		description:
-			"Strava meets tracking the species you've seen out on a walkabout, run, or row so I could appreciate the urban wildlife and watch personal mileage accrue.",
-		stack: [
-			"Django",
-			"GeoDjango",
-			"Postgres",
-			"S3",
-			"Heroku",
-			"sendgrid",
-			"whitenoise",
-		],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
-		url: "",
-	},
-];
-
 function ProjectImage({ name, images }: { name: string; images?: string[] }) {
 	const [first, second] = images ?? [];
 	return (
 		<>
-			<div className='relative aspect-video w-full overflow-hidden bg-surface-2'>
+			<div className='relative aspect-[16/10] w-full overflow-hidden bg-surface-2'>
 				{!first ? (
 					<div className='absolute inset-0 flex items-center justify-center'>
 						<span className='text-text-muted text-xs tracking-wide'>
@@ -111,7 +22,7 @@ function ProjectImage({ name, images }: { name: string; images?: string[] }) {
 						<img
 							src={first}
 							alt={`${name} screenshot 1`}
-							className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105'
+							className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-101'
 						/>
 						{second && (
 							<img
@@ -129,17 +40,20 @@ function ProjectImage({ name, images }: { name: string; images?: string[] }) {
 }
 
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+	const Wrapper = project.url ? "a" : "div";
 	return (
 		<>
-			<div className='group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 hover:translate-y-0.5 hover:border-border-light hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]'>
+			<Wrapper
+				{...(project.url && {
+					href: project.url,
+					target: "_blank",
+					rel: "noopener noreferrer",
+				})}
+				className='group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 hover:translate-y-0.5 hover:border-border-light hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]'
+				aria-laabel={project.url ? `Open ${project.name}` : undefined}>
 				{/** Image placeholder */}
 				<div className=' w-full overflow-hidden'>
 					{project.imagePath ? (
-						// <img
-						// 	src={project.imagePath}
-						// 	alt={project.name}
-						// 	className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
-						// />
 						<ProjectImage name={project.name} images={project.imagePath} />
 					) : (
 						<div className='aspect-video w-full bg-surface-2 flex items-center justify-center'>
@@ -149,7 +63,6 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 						</div>
 					)}
 				</div>
-
 				{/** Content */}
 				<div className='p-6'>
 					{/** Title */}
@@ -185,17 +98,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 						))}
 					</div>
 				</div>
-
-				{project.url && (
-					<a
-						href={project.url}
-						target='_blank'
-						rel='noopener noreferrer'
-						className='block'>
-						Link
-					</a>
-				)}
-			</div>
+			</Wrapper>
 		</>
 	);
 }

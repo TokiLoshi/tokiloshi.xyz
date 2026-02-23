@@ -53,7 +53,7 @@ function RouteComponent() {
 						<span className='text-sage font-normal'>creative developer</span>{" "}
 						based in San Francisco building playful, immersive things on the
 						web. I love <span className='text-sage font-normal'>Three.js</span>,
-						I love being challenged by a good shader, and I think life is
+						I love being challenged by a good shader, and I think the web is
 						genuinely more fun in 3D.
 					</p>
 
@@ -139,7 +139,7 @@ function RouteComponent() {
 							Say hi
 						</a>
 						<a
-							href='https://github.com/TokilLoshi'
+							href='https://github.com/TokiLoshi'
 							target='_blank'
 							rel='noopener noreferrer'
 							className='text-[13px] font-normal text-sage px-5 py-2 rounded-md border border-border hover:bg-surface hover:border-border-light transition-colors'>
