@@ -21,7 +21,7 @@ const projects = [
 			"Neon Postgres",
 			"Netlify",
 		],
-		imagePath: "",
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "",
 		status: "In progress",
 	},
@@ -40,7 +40,7 @@ const projects = [
 			"Zod",
 			"Vercel",
 		],
-		imagePath: "",
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "",
 	},
 	{
@@ -48,7 +48,7 @@ const projects = [
 		description:
 			"A mini 3D murder mystery game — explore a castle, find clues, and figure out whodunit.",
 		stack: ["R3F", "Drei", "Zustand", "Vercel"],
-		imagePath: "",
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "",
 	},
 	{
@@ -65,7 +65,7 @@ const projects = [
 			"Zustand",
 			"Vercel",
 		],
-		imagePath: "",
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "",
 	},
 	{
@@ -73,7 +73,7 @@ const projects = [
 		description:
 			"A JRPG battle game with a coding theme — built in 3 days as a collaboration for Little Shop of Chaos - 2nd place Boot.dev hackathon winners",
 		stack: ["Phaser", "MongoDB", "Express", "Typescript", "Vercel"],
-		imagePath: "",
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "",
 		badge: "🏆",
 	},
@@ -90,23 +90,57 @@ const projects = [
 			"sendgrid",
 			"whitenoise",
 		],
-		imagePath: "",
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "",
 	},
 ];
 
+function ProjectImage({ name, images }: { name: string; images?: string[] }) {
+	const [first, second] = images ?? [];
+	return (
+		<>
+			<div className='relative aspect-video w-full overflow-hidden bg-surface-2'>
+				{!first ? (
+					<div className='absolute inset-0 flex items-center justify-center'>
+						<span className='text-text-muted text-xs tracking-wide'>
+							Screenshot coming soon
+						</span>
+					</div>
+				) : (
+					<>
+						<img
+							src={first}
+							alt={`${name} screenshot 1`}
+							className='absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105'
+						/>
+						{second && (
+							<img
+								src={second}
+								alt={`${name} screenshot 2`}
+								className='absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+							/>
+						)}
+						<div className='pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas/30 via-transparent to-transparent' />
+					</>
+				)}
+			</div>
+		</>
+	);
+}
+
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 	return (
 		<>
-			<div className='group bg-surface border border-border rounded-lg overflow-hidden transition-colors hover:border-border-light'>
+			<div className='group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 hover:translate-y-0.5 hover:border-border-light hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]'>
 				{/** Image placeholder */}
 				<div className=' w-full overflow-hidden'>
 					{project.imagePath ? (
-						<img
-							src={project.imagePath}
-							alt={project.name}
-							className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
-						/>
+						// <img
+						// 	src={project.imagePath}
+						// 	alt={project.name}
+						// 	className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+						// />
+						<ProjectImage name={project.name} images={project.imagePath} />
 					) : (
 						<div className='aspect-video w-full bg-surface-2 flex items-center justify-center'>
 							<span className='text-text-muted text-xs tracking-wide'>
@@ -181,7 +215,7 @@ function RouteComponent() {
 						</h1>
 					</div>
 					<p className=' mt-3 font-light text-sm leading-relaxed text-text-secondary max-w-lg'>
-						A selection of things I've built recently — from full-stack apps to
+						Some of the things I've been building — from full-stack apps to
 						small games to creative experiments.
 					</p>
 				</div>
