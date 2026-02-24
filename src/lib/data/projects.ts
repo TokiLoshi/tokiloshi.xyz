@@ -47,7 +47,7 @@ export const projects = [
 	{
 		name: "Island Hopper",
 		description:
-			"Mapbox experiment exploring places around the world with animated 3D characters as guides.",
+			"Mapbox experiment exploring places around the world with animated 3D characters as guides, and lots of easter eggs.",
 		stack: [
 			"Next.js",
 			"R3F",
