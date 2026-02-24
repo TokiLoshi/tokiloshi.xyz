@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+// @ts-expect-error mdx frontmatter is injected by remark-mdx-frontmatter
 import Welcome, { frontmatter } from "../../content/welcome.mdx";
 import { TerminalPost } from "@/components/TerminalPost";
 
