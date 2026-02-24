@@ -1,5 +1,6 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Experience from "@/components/Experience";
 
 export const Route = createFileRoute("/")({
 	component: Home,
@@ -28,6 +29,7 @@ function Home() {
 		<>
 			<div className='min-h-svh bg-canvas text-text-primary px-6 py-14'>
 				<div className='max-w-180 mx-auto text-center'>
+					<Experience />
 					<h1 className='text-2xl md:text-5xl font-light font-display text-text-primary leading-tight'>
 						TokiLoshi.xyz
 					</h1>
