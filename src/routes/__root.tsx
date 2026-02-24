@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
+import { PostHogAnalyticsProvider } from "@/components/PostHogAnalytics";
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -57,10 +58,12 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 			</head>
 
 			<body className='bg-canvas text-text-primary font-mono antialiased'>
-				<QueryClientProvider client={queryClient}>
-					<Toaster />
-					{children}
-				</QueryClientProvider>
+				<PostHogAnalyticsProvider>
+					<QueryClientProvider client={queryClient}>
+						<Toaster />
+						{children}
+					</QueryClientProvider>
+				</PostHogAnalyticsProvider>
 				<Scripts />
 			</body>
 		</html>
