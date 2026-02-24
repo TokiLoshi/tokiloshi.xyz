@@ -9,8 +9,12 @@ const phrases = [
 	{ text: "...loading", color: "text-amber" },
 	{ text: "kaboom...", color: "text-sage" },
 	{ text: "retrying...", color: "text-text-secondary" },
-	{ text: "...loading again", color: "text-amber" },
+	{ text: "...loading again...", color: "text-amber" },
+	{ text: "brb caffeinating...", color: "text-amber-glow" },
 	{ text: "kaboom...again..again", color: "text-sage" },
+	{ text: "starting Fred again..", color: "text-amber" },
+	{ text: "compiling....", color: "text-text-primary" },
+	{ text: "...kaboom", color: "text-text-amber" },
 ];
 
 function Home() {
@@ -18,7 +22,7 @@ function Home() {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setIndex((prev) => (prev + 1) % phrases.length);
-		}, 900);
+		}, 1800);
 	}, []);
 	return (
 		<>
