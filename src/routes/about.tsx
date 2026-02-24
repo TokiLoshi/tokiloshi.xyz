@@ -128,8 +128,8 @@ function RouteComponent() {
 				{/* CTA */}
 				<div className='pt-10 border-t border-border'>
 					<p className='text-text-secondary text-sm font-light mb-6'>
-						If you're building something interesting and think we'd work well
-						together, I'd love to hear from you.
+						If you have any feedback or if you're building something interesting
+						and think we'd work well together, I'd love to hear from you.
 					</p>
 
 					<div className='flex flex-wrap gap-3'>

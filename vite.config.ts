@@ -7,6 +7,8 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@mdx-js/rollup";
 import path from "path";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 export default defineConfig({
 	resolve: {
@@ -19,7 +21,12 @@ export default defineConfig({
 	},
 	plugins: [
 		tsConfigPaths(),
-		mdx(),
+		mdx({
+			remarkPlugins: [
+				remarkFrontmatter,
+				[remarkMdxFrontmatter, { name: "frontmatter" }],
+			],
+		}),
 		tanstackStart(),
 		netlify(),
 		tailwindcss(),
