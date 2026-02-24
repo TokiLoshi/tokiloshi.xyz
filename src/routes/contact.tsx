@@ -62,7 +62,8 @@ function RouteComponent() {
 							Send a message
 						</h2>
 						<p className='mt-1 text-sm text-text-secondary'>
-							I try to respond quickly (WIP under construction)
+							I try to respond quickly but thoughtfully, sometimes that takes
+							more time
 						</p>
 						<div className='mt-6'>
 							{/** Form */}
