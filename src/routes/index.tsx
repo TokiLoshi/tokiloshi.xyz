@@ -24,6 +24,7 @@ function Home() {
 		const interval = setInterval(() => {
 			setIndex((prev) => (prev + 1) % phrases.length);
 		}, 1800);
+		return () => clearInterval(interval);
 	}, []);
 	return (
 		<>

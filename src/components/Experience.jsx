@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Text3D, OrbitControls } from "@react-three/drei";
 import { useMemo, useRef } from "react";
 
 function Cube() {
@@ -28,6 +28,21 @@ export default function Experience() {
 			<OrbitControls />
 			<ambientLight intensity={0.6} />
 			<directionalLight position={[2, 3, 4]} intensity={1.1} />
+			{/* <Text3D
+				font='/fonts/helvetiker_bold.typeface.json'
+				size={0.8}
+				height={0.18}
+				curveSegments={10}
+				bevelEnabled
+				bevelThickness={0.03}
+				bevelSize={0.02}>
+				TokiLoshi.xyz
+				<meshStandardMaterial
+					color='orange'
+					roughness={0.35}
+					metalness={0.15}
+				/>
+			</Text3D> */}
 			<Cube />
 		</Canvas>
 	);
