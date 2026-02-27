@@ -25,24 +25,10 @@ export default function Experience() {
 				position: [0, 0, 3],
 				fov: 50,
 			}}>
-			<OrbitControls />
+			<OrbitControls enableZoom={false} />
 			<ambientLight intensity={0.6} />
 			<directionalLight position={[2, 3, 4]} intensity={1.1} />
-			{/* <Text3D
-				font='/fonts/helvetiker_bold.typeface.json'
-				size={0.8}
-				height={0.18}
-				curveSegments={10}
-				bevelEnabled
-				bevelThickness={0.03}
-				bevelSize={0.02}>
-				TokiLoshi.xyz
-				<meshStandardMaterial
-					color='orange'
-					roughness={0.35}
-					metalness={0.15}
-				/>
-			</Text3D> */}
+
 			<Cube />
 		</Canvas>
 	);
