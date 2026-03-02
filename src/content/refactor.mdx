@@ -1,0 +1,64 @@
+---
+title: "When Your Side Project Outgrows Its Architecture"
+date: "2026-03-01"
+summary: "Attempted to become a better architect, accidentally executed a small demolition."
+---
+
+Cozy Chapter has been coming together pretty organically. I’d implement a feature, use it, want more, and build on that. It was working.
+
+Click the plant → track watering.
+
+Click the book → search + add.
+
+Click the headphones → Spotify audiobooks.
+
+Click the laptop → terminal chaos.
+
+Feature by feature, it stacked up nicely… until the last feature shattered that illusion. Suddenly the architecture started to irritate me and I hit the mid-project existential crisis:
+
+Where does this go?
+What is the meaning of this?
+
+With a big sigh I resigned myself to the truth. It was refactor time.
+
+---
+
+When I was doing some web3 development, my mentor loved design patterns.
+Solid singletons. Elegant adapters. Fantastic factories.
+Refactors happened _way_ before anything shipped, and things were often broken in flight.
+
+With Cozy Chapter I hadn’t needed that level of sophistication — it was supposed to do one thing. But just like in _Little Shop of Horrors_, the plants always want more.
+
+So here we are. Full circle. Things are broken in flight… at least it’s on another branch.
+
+---
+
+Things I’m enjoying during this roiling refactor:
+
+- `tree` to pretty-print the shape of the project and yes, this ended up as a mindmap in Figma because who doesn’t love a good FigJam?
+- `grep -RIn "filename" src` to see what’s connected before I break it.
+
+I also managed to accidentally demolish a couple of files I was trying to move (still unclear how), but `git restore` always has my back.
+
+---
+
+The big shift has been organizing by **domain instead of technical layers**.
+
+Moving forward, each feature will own:
+
+- its UI
+- its hooks
+- its server orchestration - I hope those stay in tune.
+- its DB interactions
+
+I'm really hopeful this will reduce the mental tax of _“where should this thing go again?”_
+
+---
+
+I think the adapter pattern is going to be perfect for what chaos comes next for my podcasts.
+
+Spotify returns one shape. YouTube returns another. Instead of repeating code and potentially leaking out said chaos, each provider will convert its response into one normalized shape. The UI will ideally stay blissfully unaware.
+
+---
+
+This may have started as a weekend architectural spiral, but sometimes you just need to take things for a spin and see where you land, for me right now that's in the messy middle.

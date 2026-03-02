@@ -1,6 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 // @ts-expect-error mdx frontmatter is injected by remark-mdx-frontmatter
 import Welcome, { frontmatter } from "../../content/welcome.mdx";
+// eslint-disable-next-line
+import Refactor, {
+	frontmatter as frontmatterR,
+} from "../../content/refactor.mdx";
 import { TerminalPost } from "@/components/TerminalPost";
 
 export const Route = createFileRoute("/devlog/welcome")({
@@ -31,6 +35,16 @@ function RouteComponent() {
 								and embracing the inevitable creep of scope.
 							</p>
 						</div>
+						{/** Refactor Post */}
+						<TerminalPost
+							path='tokiloshi.xyz / devlog / refactoringPains'
+							title={frontmatterR.title}
+							date={frontmatterR.date}
+							summary={frontmatterR.summary}>
+							<Refactor />
+						</TerminalPost>
+						<div className='m-2' />
+						{/** Welcome Post */}
 						<TerminalPost
 							path='tokiloshi.xyz / devlog / welcome'
 							title={frontmatter.title}
