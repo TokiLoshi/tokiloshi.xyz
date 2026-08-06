@@ -16,7 +16,6 @@ export const projects = [
 		],
 		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
 		url: "https://cozy-chapter.netlify.app/",
-		status: "In progress",
 	},
 	{
 		name: "Pitaya Tracker",
@@ -35,6 +34,14 @@ export const projects = [
 		],
 		imagePath: ["projects/pitaya1.png", "projects/pitaya2.png"],
 		url: "",
+	},
+	{
+		name: "Bin There Ate That",
+		description:
+			"A trash-panda platformer in three courses. You are a raccoon and there is food. You know what to do. Eat your way through a full three-course meal - entrée, main and just desserts, leaving every level cleaner than you found it. Technically. The dinner conversation flows, effortlessly. This trash panda is a bit of a yapper.",
+		stack: ["Godot 4.7"],
+		imagePath: ["projects/starter.png"],
+		url: "https://tokiloshi.itch.io/bin-there-ate-that",
 	},
 	{
 		name: "Castle Capers",
@@ -61,6 +68,7 @@ export const projects = [
 		imagePath: ["projects/islandHopper1.png", "projects/islandHopper2.png"],
 		url: "https://island-hopper.vercel.app/",
 	},
+
 	{
 		name: "Codemon",
 		description:
