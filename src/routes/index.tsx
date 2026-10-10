@@ -13,19 +13,13 @@ const phrases = [
 	{ text: "kaboom...", color: "text-sage" },
 	{ text: "retrying...", color: "text-text-secondary" },
 	{ text: "...loading again...", color: "text-amber" },
-	{ text: "brb caffeinating...", color: "text-amber-glow" },
+	{ text: "brb caffeinating...", color: "text-blush" },
 	{ text: "starting up Fred again..", color: "text-amber" },
 	{ text: "kaboom...again", color: "text-sage" },
 	{ text: "compiling....", color: "text-text-primary" },
-	{ text: "experience compiled", color: "text-text-amber-glow" },
-	{
-		text: "coded with curiosity",
-		color: "text-amber",
-	},
-	{
-		text: "and a touch of chaos",
-		color: "text-amber-glow",
-	},
+	{ text: "experience compiled", color: "text-amber" },
+	{ text: "coded with curiosity", color: "text-sage" },
+	{ text: "and a touch of chaos", color: "text-blush" },
 ];
 
 function Home() {
@@ -35,19 +29,14 @@ function Home() {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setIndex((prev) => (prev + 1) % phrases.length);
+			setJitter({ y: Math.random() * 6 - 3, ls: Math.random() * 1.5 });
 		}, 1800);
 		return () => clearInterval(interval);
 	}, []);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setJitter({ y: Math.random() * 6 - 3, ls: Math.random() * 1.5 });
-		});
-	}, [index]);
-
 	return (
 		<>
-			<div className='min-h-svh bg-canvas text-text-primary px-6 py-14'>
+			<div className='min-h-svh px-6 py-14'>
 				<div className='max-w-180 mx-auto text-center'>
 					<div className='mx-auto mb-10 h-56 w-full max-w-xl'>
 						<Experience />
