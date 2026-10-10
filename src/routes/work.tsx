@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Header from "../components/Header";
 import { projects } from "@/lib/data/projects";
 import type { Project } from "@/lib/data/projects";
+import Tilt from "@/components/Tilt";
 
 export const Route = createFileRoute("/work")({
 	component: RouteComponent,
@@ -50,7 +50,7 @@ function ProjectCard({ project }: { project: Project }) {
 					target: "_blank",
 					rel: "noopener noreferrer",
 				})}
-				className='group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.3) hover:-translate-y-1 hover:border-border-light hover:shadow-[0_2px_4px_rgba(0,0,0,0.3),0_20px_40px_-12px_rgba(0,0,0,0.5)] motion-reduce:hover:translate-y-0'
+				className='block h-full group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.3)] hover:-translate-y-1 hover:border-border-light hover:shadow-[0_2px_4px_rgba(0,0,0,0.3),0_20px_40px_-12px_rgba(0,0,0,0.5)] motion-reduce:hover:translate-y-0'
 				aria-label={project.url ? `Open ${project.name}` : undefined}>
 				{/** Image placeholder */}
 				<div className=' w-full overflow-hidden'>
@@ -127,7 +127,9 @@ function RouteComponent() {
 				{/** Project grid */}
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
 					{projects.map((project) => (
-						<ProjectCard key={project.name} project={project} />
+						<Tilt key={project.name}>
+							<ProjectCard key={project.name} project={project} />
+						</Tilt>
 					))}
 				</div>
 			</div>
