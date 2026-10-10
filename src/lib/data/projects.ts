@@ -1,10 +1,67 @@
+export type Project = {
+	name: string;
+	description: string;
+	stack: string[];
+	imagePath?: string[];
+	url?: string;
+	badge?: string;
+	status?: string;
+};
+
 export const projects = [
+	{
+		name: "Watts for Dinner",
+		description:
+			"Your cheeky potato chef and coach. Watts reads your WHOOP recovery, so dinner matches how you actually feel. Looks in your fridge from one photo. Suggests three recipes that fit your energy tonight. Remembers the meals you loved, and skips the ones you didn't.",
+		stack: [
+			"Tanstack Start",
+			"R3F",
+			"Drizzle",
+			"Neon Postgres",
+			"Neon Gateway",
+			"Zod",
+			"three.js",
+			"Mastra",
+			"Better Auth",
+			"Fly.io",
+			"Posthog",
+			"Assistant UI",
+		],
+		imagePath: ["projects/wattsForDinner.png", "projects/wattsForDinner3.png"],
+		url: "https://watts-for-dinner.fly.dev/",
+		status: "under construction 🚧",
+	},
+	{
+		name: "Wishkept",
+		description:
+			"An AI gifting assistant that keeps up with your people and buys from small shops near them",
+		stack: [
+			"Tanstack Start",
+			"Mastra",
+			"Neon Postgres",
+			"Netlify",
+			"Posthog",
+			"Start Foundation",
+			"Flora.ai",
+		],
+		imagePath: ["projects/wishkept.png", "projects/wishkept2.png"],
+		url: "https://wish-kept.netlify.app/",
+		status: "under construction 🚧",
+	},
+	{
+		name: "Toki's Take",
+		description:
+			"A notes garden built from Obsidian with a markdown parser, to share events and experiments.",
+		stack: ["Tanstack Start", "Remark", "Rehype", "Three.js", "R3F", "Drei"],
+		imagePath: ["projects/tokisTake.png", "projects/tokisTake2.png"],
+		url: "https://tokis-take.netlify.app/",
+	},
 	{
 		name: "Cozy Chapter",
 		description:
 			"A 3D personal media tracker and plant watering app — because my growing collection of Dracaena demanded better record-keeping.",
 		stack: [
-			"Tanstack start",
+			"Tanstack Start",
 			"R3F",
 			"Drizzle",
 			"Better Auth",
@@ -14,7 +71,7 @@ export const projects = [
 			"Neon Postgres",
 			"Netlify",
 		],
-		imagePath: ["projects/cozyRoom1.png", "projects/cozyRoom2.png"],
+		imagePath: ["projects/cozyRoom1.png", "projects/cozyChapter3.png"],
 		url: "https://cozy-chapter.netlify.app/",
 	},
 	{
@@ -40,7 +97,7 @@ export const projects = [
 		description:
 			"A trash-panda platformer in three courses. You are a raccoon and there is food. You know what to do. Eat your way through a full three-course meal - entrée, main and just desserts, leaving every level cleaner than you found it. Technically. The dinner conversation flows, effortlessly. This trash panda is a bit of a yapper.",
 		stack: ["Godot 4.7"],
-		imagePath: ["projects/starter.png"],
+		imagePath: ["projects/starter.png", "projects/binthere1.png"],
 		url: "https://tokiloshi.itch.io/bin-there-ate-that",
 	},
 	{

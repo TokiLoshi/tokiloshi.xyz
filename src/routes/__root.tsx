@@ -57,7 +57,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 				<HeadContent />
 			</head>
 
-			<body className='bg-canvas text-text-primary font-mono antialiased'>
+			<body>
 				<QueryClientProvider client={queryClient}>
 					<Analytics />
 					<Toaster />

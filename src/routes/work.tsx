@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Header from "../components/Header";
 import { projects } from "@/lib/data/projects";
+import type { Project } from "@/lib/data/projects";
+import Tilt from "@/components/Tilt";
 
 export const Route = createFileRoute("/work")({
 	component: RouteComponent,
@@ -10,7 +11,7 @@ function ProjectImage({ name, images }: { name: string; images?: string[] }) {
 	const [first, second] = images ?? [];
 	return (
 		<>
-			<div className='relative aspect-[16/10] w-full overflow-hidden bg-surface-2'>
+			<div className='relative aspect-16/10 w-full overflow-hidden bg-surface-2'>
 				{!first ? (
 					<div className='absolute inset-0 flex items-center justify-center'>
 						<span className='text-text-muted text-xs tracking-wide'>
@@ -39,7 +40,7 @@ function ProjectImage({ name, images }: { name: string; images?: string[] }) {
 	);
 }
 
-function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+function ProjectCard({ project }: { project: Project }) {
 	const Wrapper = project.url ? "a" : "div";
 	return (
 		<>
@@ -49,8 +50,8 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 					target: "_blank",
 					rel: "noopener noreferrer",
 				})}
-				className='group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 hover:translate-y-0.5 hover:border-border-light hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]'
-				aria-laabel={project.url ? `Open ${project.name}` : undefined}>
+				className='block h-full group bg-surface border border-border rounded-lg overflow-hidden transition duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.3)] hover:-translate-y-1 hover:border-border-light hover:shadow-[0_2px_4px_rgba(0,0,0,0.3),0_20px_40px_-12px_rgba(0,0,0,0.5)] motion-reduce:hover:translate-y-0'
+				aria-label={project.url ? `Open ${project.name}` : undefined}>
 				{/** Image placeholder */}
 				<div className=' w-full overflow-hidden'>
 					{project.imagePath ? (
@@ -92,7 +93,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 						{project.stack.map((tool) => (
 							<span
 								key={tool}
-								className='inline-flex items-center rounded-md px-2 py-0.5 text-xs font-normal bg-surface-2/60 text-text-secondary border border/70 transition hover:text-text-primary hover:bg-amber-glow'>
+								className='inline-flex items-center rounded-md px-2 py-0.5 text-xs font-normal bg-surface-2/60 text-text-secondary border border-border/70 transition hover:text-text-primary hover:bg-amber-glow'>
 								{tool}
 							</span>
 						))}
@@ -126,7 +127,9 @@ function RouteComponent() {
 				{/** Project grid */}
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
 					{projects.map((project) => (
-						<ProjectCard key={project.name} project={project} />
+						<Tilt key={project.name}>
+							<ProjectCard key={project.name} project={project} />
+						</Tilt>
 					))}
 				</div>
 			</div>

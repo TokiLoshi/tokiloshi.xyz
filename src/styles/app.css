@@ -37,5 +37,17 @@
 	}
 	body {
 		@apply bg-canvas text-text-primary font-mono antialiased;
+		background-image:
+			radial-gradient(
+				ellipse 80% 50% at 50% -10%,
+				rgba(212, 147, 90, 0.08),
+				transparent 70%
+			),
+			radial-gradient(
+				ellipse at center,
+				transparent 50%,
+				rgba(0, 0, 0, 0.35) 100%
+			);
+		background-attachment: fixed;
 	}
 }
